@@ -5,6 +5,7 @@ services:
       - 8080:8080
     secrets:
       - db-password
+
   db:
     # We use a mariadb image which supports both amd64 & arm64 architecture
     image: mariadb:10.6.4-focal
@@ -21,8 +22,14 @@ services:
     expose:
       - 3306
       - 33060   
+
 volumes:
   db-data:
+
 secrets:
   db-password:
     file: db/password.txt
+
+ingress:
+  service: backend
+  port: 8080
