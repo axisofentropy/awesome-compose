@@ -1,7 +1,8 @@
 services:
   frontend:
     build:
-      context: frontend
+      context: https://github.com/axisofentropy/awesome-compose:master
+      dockerfile: react-rust-postgres/frontend/Dockerfile
       target: development
     ports:
       - 3000:3000
@@ -10,7 +11,8 @@ services:
 
   backend:
     build:
-      context: backend
+      context: https://github.com/axisofentropy/awesome-compose:master
+      dockerfile: react-rust-postgres/backend/Dockerfile
       target: development
     environment:
       - ADDRESS=0.0.0.0:8000
