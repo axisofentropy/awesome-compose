@@ -4,6 +4,7 @@ services:
       args:
       - NODE_ENV=development
       context: backend
+      dockerfile: react-express-mysel.backend.Dockerfile
     command: npm run start-watch
     environment:
       - DATABASE_DB=example
@@ -47,6 +48,7 @@ services:
     build:
       context: frontend
       target: development
+      dockerfile: react-express-mysel.frontend.Dockerfile
     ports:
       - 3000:3000
     volumes:
